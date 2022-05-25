@@ -5,6 +5,9 @@ localStorage.setItem("historico", "fechado")
 
 function checkaccount() {
 
+    if (localStorage.getItem("email") == null) {
+        location.href = "./pages/login.html"
+    }
 
     db.collection("usuarios").doc(localStorage.getItem("email")).get().then((doc) => {
         if (doc.exists) {
