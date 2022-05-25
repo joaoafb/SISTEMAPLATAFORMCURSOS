@@ -85,7 +85,7 @@ function checkaccount() {
         if (doc.exists) {
             document.getElementById("saldo").innerHTML = "R$ " + doc.data().saldo
             document.getElementById("totalcursos").innerHTML = doc.data().TotaldeCursos
-            document.getElementById("quantidadeshared").innerHTML = doc.data().Shared + " Pessoas Usaram Seu Código"
+            document.getElementById("quantidadeshared").innerHTML = doc.data().Shared + " Pessoas Usaram Seu Código" + '<br><span>Seu Código: ' + doc.data().Codigo + ' </span>'
 
         } else {
 
