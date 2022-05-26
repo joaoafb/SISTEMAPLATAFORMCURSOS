@@ -4,7 +4,7 @@ function meuscursos() {
 
             localStorage.setItem("idcurso", doc.id)
 
-
+document.getElementById("btnassistir").innerHTML = '<i class="fa-solid fa-circle-play"></i>Assistir'
             db.collection("cursos" + localStorage.getItem("email")).get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
 
@@ -41,6 +41,7 @@ function meuscursos() {
                     button.style.background = '#7e3af2'
                     button.style.color = "white"
                     button.style.border = '0'
+                    button.id = "btnassistir"
                     button.className = 'btn bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow'
                     button.appendChild(txt);
                     button.onclick = function assistir() {
