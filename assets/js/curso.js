@@ -1,4 +1,8 @@
+document.getElementById("imgperfil").src = localStorage.getItem("urlimg")
+
+
 function list() {
+
     db.collection("usuarios").doc(localStorage.getItem("email")).get().then((doc) => {
         if (doc.exists) {
             localStorage.setItem("meusaldo", doc.data().saldo)
@@ -22,11 +26,11 @@ function list() {
                 localStorage.setItem("quantosmodulos", doc.data().quantosmodulos),
                 console.log(doc.id, " => ", doc.data());
             localStorage.setItem("idcurso", doc.id)
-
+            const descricao = doc.data().descricaocurso
 
             var html = '<div>';
             html += '<div  class="-mx-4 flex flex-wrap ">';
-            html += '<div style="margin:10px;" class="w-full px-4 md:w-1/2 lg:w-1/3 z-10 py-4 bg-white shadow-md dark:bg-gray-800">'
+            html += '<div style="margin:10px;width:400px;height:auto;" class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">'
             html += '<div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">'
             html += ' <div class="mb-8 overflow-hidden rounded">'
 
@@ -37,7 +41,7 @@ function list() {
             html += ' <span  class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white"> ' + doc.data().categoria + '</span><h3>'
             html += '    <h1  class=" text-white mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">' + doc.data().titulocurso + '</h1>'
             html += ' </h3>'
-            html += ' <p class=" text-white text-base text-body-color">' + doc.data().descricaocurso + '</p>'
+            html += ' <p class=" text-white text-base text-body-color">' + descricao.slice(0, 100) + '...</p>'
             html += '  </div>'
             html += '      <button onclick="infocurso()" style="margin-top:10px;background:#7e3af2;color:White;border:0;" type="button"class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Adquirir</button>'
             html += ' </div>'
@@ -63,11 +67,12 @@ function infocurso() {
 
     swalWithBootstrapButtons.fire({
 
-        title: 'Deseja Adquirir Este Curso?' + '<br>' + '<span style="font-size:12pt;">' + localStorage.getItem("titulocurso") + '<span style="margin-left:5px;" class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white">Por R$' + localStorage.getItem("valor") + '</span></span>',
+        title: 'Deseja Adquirir Este Curso?' + '<br>' + '<span style="font-size:12pt;">' + localStorage.getItem("titulocurso") + '<span style="margin-left:5px;" class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white style="display: flex;flex-direction:row;align-items:center;">Por R$' + localStorage.getItem("valor") + '</span><br><br><span style="margin-left:5px;" class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white style="display: flex;flex-direction:row;align-items:center;">' + localStorage.getItem("descricaocurso") + '</span></span>',
 
 
         icon: 'question',
         showCancelButton: true,
+        confirmButtonbackground: '#7e3af2',
         confirmButtonText: 'Adquirir Curso!',
         cancelButtonText: 'Não Quero!',
         reverseButtons: true
@@ -99,7 +104,7 @@ function infocurso() {
         ) {
             swalWithBootstrapButtons.fire(
                 'Compra Cancelada',
-                'Não Esqueça! Ele Sempre Estará Aqui! :)',
+                '<span style="color:white;">Não Esqueça! Ele Sempre Estará Aqui! :)</span>',
                 'error'
             )
         }
@@ -160,6 +165,18 @@ function adquirircurso() {
     }
 
     function addcursoconta() {
+        db.collection("cursos").doc(localStorage.getItem("idcurso")).get().then((doc) => {
+            if (doc.exists) {
+                localStorage.setItem("alunos", doc.data().alunos)
+            } else {
+
+                console.log("No such document!");
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+        });
+
+
         //addcurso na conta
         db.collection("cursos" + localStorage.getItem("email")).doc(localStorage.getItem("idcurso")).set({
                 nome: localStorage.getItem("titulocurso"),
@@ -175,6 +192,7 @@ function adquirircurso() {
                 categoria: localStorage.getItem("categoria"),
                 quantasaulascurso: localStorage.getItem("quantasaulascurso"),
                 quantosmodulos: localStorage.getItem("quantosmodulos"),
+
 
             })
             .then(() => {

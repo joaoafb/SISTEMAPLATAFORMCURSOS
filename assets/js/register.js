@@ -135,6 +135,7 @@ function register() {
                             alert: null,
                             msgsistema: null,
                             banido: "nao",
+                            cargo: 'Usuario Comum'
                         })
                         .then(() => {
                             verificarcodigo()

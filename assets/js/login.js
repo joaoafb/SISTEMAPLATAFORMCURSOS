@@ -55,6 +55,7 @@ function login() {
                                                     text: '',
                                                     footer: '<a href="../index.html">Continuar</a>'
                                                 })
+                                            localStorage.setItem("cargo", doc.data().cargo)
                                             localStorage.setItem("nome", doc.data().nome)
                                             localStorage.setItem("logado", "sim")
                                             localStorage.setItem("Codigo", doc.data().Codigo)
