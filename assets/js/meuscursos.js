@@ -1,6 +1,13 @@
+function mudarbtn(){ 
+setInterval(() => {
+         document.getElementById("btnassistir").innerHTML = '<i class="fa-solid fa-circle-play"></i>Assistir'
+    }, 500);
+}
+mudarbtn()
+clearInterval(mudarbtn)
 
 function meuscursos() {
-    document.getElementById("btnassistir").innerHTML = '<i class="fa-solid fa-circle-play"></i>Assistir'
+   
     db.collection("cursos" + localStorage.getItem("email")).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
