@@ -2,6 +2,7 @@
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="pt-br">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
     <meta charset="UTF-8" />
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
@@ -15,20 +16,8 @@
 
     <style>
         video {
-            border-radius: 10px;
+            border-radius: 200px;
             margin: 10px;
-        }
-        
-        video::-internal-media-controls-download-button {
-            display: none;
-        }
-        
-        video::-webkit-media-controls-enclosure {
-            overflow: hidden;
-        }
-        
-        video::-webkit-media-controls-panel {
-            width: calc(100% + 30px);
         }
     </style>
 </head>
@@ -101,8 +90,21 @@
                 </div>
             </header>
             <main id="divvideo" class="h-full overflow-y-auto">
+                <div  style="color:white;font-size: 9pt; background-color: #1a1c23; margin: 5px; padding: 5px;width: 90%;margin-left: 3%;" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                    <span id="title"></span>
+                    <br>
+                   
+                </div>
+                <video autoplay id="video" class="video-js player_video viewer" style="padding:20px;border-radius:10px;" poster="assets/img/poster.png" style="width:100%;margin:10px auto;" oncontextmenu="return false;" controlsList="nodownload"  frameborder="0" quality="auto" controls src=""></video>
+               
+                    <div style="color:white;font-size: 9pt; background-color: #1a1c23; margin: 5px; padding: 5px;width: 90%;margin-left: 3%;" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
 
-            </main>
+                        <br>
+                        <span style="padding-right:10px">Descrição:  </span>
+                        <br>
+                        <span style="color: rgb(156, 156, 156);" id="descricao"></span>
+                    </div>
+                    </main>
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
@@ -114,6 +116,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://kit.fontawesome.com/1b780029f6.js" crossorigin="anonymous"></script>
 <script>
     firebase.initializeApp({
         authDomain: "plataformacursos-ebc63.firebaseapp.com",
@@ -129,7 +132,6 @@
 </script>
 <script src="./assets/js/player.js"></script>
 <script src="https://kit.fontawesome.com/1b780029f6.js" crossorigin="anonymous"></script>
-<script>
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </html>

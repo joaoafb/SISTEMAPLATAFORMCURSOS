@@ -488,6 +488,10 @@
                     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                         Cadastro de Aula
                     </h2>
+                    <div style="color: white;" class="items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+
+
+                    </div>
                     <main class="h-full pb-16 overflow-y-auto">
 
                         <form onsubmit="addaula();return false;" style="margin: 10px;" class="items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
@@ -501,10 +505,10 @@
                                 <input required id="tituloaula" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                                     type="text" placeholder="Titulo Da Aula" />
 
-                                <label style="color: white;" for="">Módulo</label>
+                                <label style="color: white;" for="">Aula</label>
                                 <input required id="modulo" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                                     type="text" placeholder="Módulo" />
-                                <label style="color: white;" for="">Aula</label>
+                                <label style="color: white;" for="">Módulo</label>
                                 <input required id="aula" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                                     type="number" placeholder="Numeração Da Aula" />
 
@@ -547,6 +551,8 @@
 
     var db = firebase.firestore();
 </script>
+
 <script src="assets/js/addaula.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
 
 </html>
