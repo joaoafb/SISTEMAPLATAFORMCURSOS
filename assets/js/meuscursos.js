@@ -23,7 +23,7 @@ function meuscursos() {
 
                     html += '  </div>'
                     html += '<div>'
-                    html += ' <span  class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white"> ' + doc.data().categoria + '</span><h3>'
+                    html += '<h3>'
                     html += '    <h1  class=" text-white mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">' + doc.data().titulocurso + '</h1>'
                     html += ' </h3>'
                    
