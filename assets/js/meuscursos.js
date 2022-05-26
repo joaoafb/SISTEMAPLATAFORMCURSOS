@@ -1,3 +1,4 @@
+document.getElementById("btnassistir").innerHTML = '<i class="fa-solid fa-circle-play"></i>Assistir'
 function meuscursos() {
     db.collection("cursos" + localStorage.getItem("email")).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
