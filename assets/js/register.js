@@ -49,7 +49,7 @@ function register() {
         if (doc.exists) {
             localStorage.setItem("contas", doc.data().Contas)
         }
-        if (localStorage.getItem("contas") > 5) {
+        if (localStorage.getItem("contas") > 2) {
             notify.play()
             let timerInterval
             Swal.fire({
