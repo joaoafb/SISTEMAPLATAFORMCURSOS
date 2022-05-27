@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="pt-br">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modals - Windmill Dashboard</title>
+    <title>Adicionar Aula</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -13,7 +13,7 @@
     <script src="./assets/js/focus-trap.js" defer></script>
 </head>
 
-<body>
+<body onload="load()">
     <audio id="notify" src='./assets/notify.mp3'></audio>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
         <!-- Desktop sidebar -->
@@ -495,7 +495,25 @@
                     <main class="h-full pb-16 overflow-y-auto">
 
                         <form onsubmit="addaula();return false;" style="margin: 10px;" class="items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                            <label style="background-color: #121317;color:white;border:0;" class="w-36 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
+                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                </svg>
+                                <span class="mt-2 text-base leading-normal">Selecione o Video</span>
+                                <input id="video" accept="video/mp4,video/x-m4v,video/*" type='file' class="hidden" />
+                            </label>
+                            <br>
+                            <label for="" style="color: white;font-size:9pt" id="uploading"></label>
+                            <div style="display: flex;flex-direction:row;justify-content: center;">
+                                <label for="" id="porcentagem" style="font-size:9pt;color: white;">0%</label>
+                                <progress value="0" max="100" id="progress"></progress></div>
+                            <br>
 
+                            <div id="list" name="cars">
+
+
+                            </div>
+                            <br>
                             <div id="curso">
                                 <label style="color: white;" for="">ID Curso</label>
                                 <input required id="idcurso" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
@@ -517,8 +535,23 @@
                                     type="url" placeholder="Link" />
 
                                 <label style="color: white;" for="">Descrição</label>
-                                <textarea required id="descricao" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                                <textarea id="descricao" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                                     type="url" placeholder="descricao"></textarea>
+
+                                <!--ARQUIVO DESCRICAO-->
+                                <label style="background-color: #121317;color:white;border:0;" class="w-36 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
+                                      <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                          <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                      </svg>
+                                      <span class="mt-2 text-base leading-normal">Selecione o Arquivo</span>
+                                      <input id="arquivo"  type='file' class="hidden" />
+                                  </label>
+                                <br>
+                                <label for="" style="color: white;font-size:9pt" id="uploadingarq"></label>
+                                <div style="display: flex;flex-direction:row;justify-content: center;">
+                                    <label for="" id="porcentagemarq" style="font-size:9pt;color: white;">0%</label>
+                                    <progress value="0" max="100" id="progressarq"></progress></div>
+                                <br>
 
 
 
@@ -536,9 +569,10 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
 <script>
     firebase.initializeApp({
         authDomain: "plataformacursos-ebc63.firebaseapp.com",

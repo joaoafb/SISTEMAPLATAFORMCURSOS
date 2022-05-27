@@ -1,3 +1,6 @@
+var v = document.getElementById("video")
+
+
 function exibiraulas() {
     //RECEBER QUANTOS MODULOS
     db.collection("cursos").doc(localStorage.getItem("assistir")).get().then((doc) => {
@@ -47,6 +50,8 @@ function exibiraulas() {
             titulo.style.backgroundColor = '#121317'
             titulo.style.margin = '5px'
             titulo.style.padding = '10px'
+
+
             titulo.onclick = function() {
 
                 console.log(doc.data().titulo)
@@ -54,6 +59,7 @@ function exibiraulas() {
                 document.getElementById("title").innerText = doc.data().titulo
                 document.querySelector("#descricao").innerHTML = doc.data().descricao;
                 document.querySelector("#video").src = doc.data().link;
+
             }
             titulo.appendChild(texttitulo);
 
@@ -63,6 +69,7 @@ function exibiraulas() {
 
 
 
+            document.getElementById("baixararquivo").onclick = function() { location.href = doc.data().arquivo }
 
             const titulom = document.createElement("li");
             const texttitulom = document.createTextNode(doc.data().titulo);

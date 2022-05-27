@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
     <meta charset="UTF-8" />
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buttons - Windmill Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -95,18 +96,25 @@
                     <br>
                    
                 </div>
-                <video autoplay id="video" class="video-js player_video viewer" style="padding:20px;border-radius:10px;" poster="assets/img/poster.png" style="width:100%;margin:10px auto;" oncontextmenu="return false;" controlsList="nodownload"  frameborder="0" quality="auto" controls src=""></video>
-               
+                <video playsinline autoplay id="video" class="video-js player_video viewer" style="padding:20px;border-radius:10px;" poster="assets/img/poster.png" style="width:100%;margin:10px auto;" oncontextmenu="return false;" controlsList="nodownload"  frameborder="0" quality="auto" controls  src=""></video>
+                
                     <div style="color:white;font-size: 9pt; background-color: #1a1c23; margin: 5px; padding: 5px;width: 90%;margin-left: 3%;" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
 
                         <br>
                         <span style="padding-right:10px">Descrição:  </span>
-                        <br>
-                        <span style="color: rgb(156, 156, 156);" id="descricao"></span>
-                    </div>
-                    </main>
+                        <button id="baixararquivo" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                               Baixar Arquivos
+                            </span>
+                          </button>
+                    <br>
+                    <span style="color: rgb(156, 156, 156);" id="descricao"></span>
+
+                </div>
+                </main>
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
 
 </html>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

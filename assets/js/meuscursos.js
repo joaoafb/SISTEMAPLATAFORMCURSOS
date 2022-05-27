@@ -23,7 +23,7 @@ function meuscursos() {
                     localStorage.setItem("titulocurso", doc.data().titulocurso)
                     localStorage.setItem("descricaocurso", doc.data().descricaocurso)
                     localStorage.setItem("valor", doc.data().valor)
-                    var html = '<br><br>	<div class="card">'
+                    var html = '<br><br>	<div  class="card">'
                     html += '<div class="imgBx">'
                     html += '   <img src="' + doc.data().data + '" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">'
                     html += '	</div>'

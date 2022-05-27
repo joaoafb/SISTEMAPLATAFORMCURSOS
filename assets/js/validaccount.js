@@ -1,10 +1,10 @@
 var notify = document.querySelector('#notify')
 document.querySelector("#pageinicio").style.transition = '.5s cubic-bezier(.685,.0473,.346,1)'
 document.getElementById("txthistorico").style.display = "none"
-localStorage.setItem("historico", "fechado")
+
 
 function checkaccount() {
-
+    document.getElementById("imgperfil").src = localStorage.getItem("urlimg")
     if (localStorage.getItem("email") == null) {
         location.href = "./pages/login.html"
     }
@@ -627,11 +627,12 @@ function banimento() {
             html += '<tbody>';
 
             html += '<tr>';
-            html += '<td >';
+            html += '<td id="listauser" >';
 
-            html += '<span onclick="' + ban() + '" class="dark:text-black-200">' + doc.data().email + '</span>'
 
-            html += '<hr>';
+
+
+
             html += '</td>';
 
             html += '</tr>';
@@ -639,7 +640,13 @@ function banimento() {
             html += '</tbody>';
             html += '</table>';
 
+
             document.getElementById("painelban").innerHTML += html;
+            const node = document.createElement("span");
+            const textnode = document.createTextNode("Clique Para Banir " + doc.data().email);
+            node.appendChild(textnode);
+            node.className = 'px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-purple '
+            document.getElementById("listauser").appendChild(node);
         });
     });
 

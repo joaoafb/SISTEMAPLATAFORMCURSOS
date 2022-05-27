@@ -1,0 +1,133 @@
+<!Doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script defer="" src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+
+    <title>Plataform Club</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css">
+</head>
+
+<body onload="load()" class="bg-gray-50" style="">
+    <script defer="" src="https://unpkg.com/alpinejs@3.1.1/dist/cdn.min.js"></script>
+    <style>
+
+    </style>
+    <style>
+        *::-webkit-scrollbar {
+            background-color: transparent;
+        }
+        
+        html {
+            background-color: #121317;
+            padding: 10px;
+        }
+        
+        .hover-image-1 {
+            transition: ease-in-out 0.2s;
+        }
+        
+        .hover-image-1:hover {
+            width: 50px;
+            height: 50px;
+        }
+        
+        #posts {
+            margin: 0 auto;
+        }
+        
+        .hide-scroll-bar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scroll-bar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        #form {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        @media (min-width:768px) {
+            #post {
+                width: 100%;
+            }
+        }
+    </style>
+    <div style="  background-color: #121317;" class="flex h-screen  dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
+
+
+        <div class="flex flex-col flex-1">
+
+            </header>
+
+            <main style="display: flex;flex-direction:column;" class="h-full pb-16 ">
+                <div style="margin: 0 auto;width:100% ;" id="posts"></div>
+
+
+
+                <div class="block  ">
+                    <div id="form" class="col-span-2">
+
+                        <div class="pt-10">
+                            <textarea id="msg" name="message" placeholder="Dê Aqui Uma Sugestão De Curso" class=" focus:outline-none  w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
+
+                            <footer class="flex justify-between mt-2">
+
+                                <button style="height: 40px;" onclick="postar()" class="flex items-center py-2 px-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg">Postar
+                    <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                            </footer>
+
+
+                        </div>
+                        <div style="background-color: transparent;" class="bg-white shadow rounded-lg mb-6">
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+            </main>
+            </div>
+        </div>
+
+</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://kit.fontawesome.com/1b780029f6.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+    firebase.initializeApp({
+        authDomain: "plataformacursos-ebc63.firebaseapp.com",
+        projectId: "plataformacursos-ebc63",
+        storageBucket: "plataformacursos-ebc63.appspot.com",
+        messagingSenderId: "765909255475",
+        appId: "1:765909255475:web:91b677dcecd0ca58556a46",
+        measurementId: "G-313E4KE5T8"
+    });
+
+    var db = firebase.firestore();
+</script>
+<script src="../assets/js/redesocial.js"></script>
+
+</html>
