@@ -16,20 +16,21 @@
     <script src="./assets/js/init-alpine.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/1b780029f6.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body onload="checkaccount()">
     <audio id="notify" src='./assets/notify.mp3'></audio>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="ease-in-out duration-300 flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
         <!-- Desktop sidebar -->
         <aside style="border-radius: 20px;" class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div class="py-4 text-gray-500 dark:text-gray-400">
-                <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+                <a class="animate-pulse  ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
             Plataform Cursos
           </a>
                 <ul class="mt-6">
-                    <li class="relative px-6 py-3">
+                    <li class="relative px-6 py-3 ">
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="index.html">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -447,9 +448,14 @@
                     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
 
                         <div style="background-color:#1a1c23;color:white;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
-                            <div class="flex-1 px-2">
-                                <h2 class="text-3xl font-extrabold" id="cursosplataform"></h2>
-                                <p class="text-sm text-opacity-60">Cursos</p>
+                            <div class="flex-1 px-2 hover:opacity-50 dark:hover:opacity-50 ease-in-out duration-300  ">
+
+                                <h2 class="text-3xl font-extrabold " id="cursosplataform"></h2>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-graduation-cap m-1 "></i>
+                                    <p class="text-sm text-opacity-60">Cursos</p>
+                                </div>
+
                             </div>
                             <div class="flex-0">
                                 <div class="dropdown dropdown-top dropdown-end">
@@ -466,10 +472,13 @@
 
 
 
-                        <div style="background-color:#1a1c23;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
-                            <div class="flex-1 px-2">
+                        <div style="background-color:#1a1c23;color:white;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
+                            <div class="flex-1 px-2 hover:opacity-50 dark:hover:opacity-50 ease-in-out duration-300  ">
                                 <h2 class="text-3xl font-extrabold" id="saldo"></h2>
-                                <p class="text-sm text-opacity-60">Saldo</p>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-sack-dollar m-1"></i>
+                                    <p class="text-sm text-opacity-60">Saldo</p>
+                                </div>
                             </div>
                             <div class="flex-0">
                                 <div class="dropdown dropdown-top dropdown-end">
@@ -483,10 +492,13 @@
                         </div>
 
 
-                        <div style="background-color:#1a1c23;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
-                            <div class="flex-1 px-2">
+                        <div style="background-color:#1a1c23;color:white;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
+                            <div class="flex-1 px-2 hover:opacity-50 dark:hover:opacity-50 ease-in-out duration-300  ">
                                 <h2 class="text-3xl font-extrabold" id="totalcursos"></h2>
-                                <p class="text-sm text-opacity-60">Seus Cursos</p>
+                                <div class="flex items-center">
+                                    <i class="fa-solid fa-user-graduate m-1 "></i>
+                                    <p class="text-sm text-opacity-60">Seus Cursos</p>
+                                </div>
                             </div>
                             <div class="flex-0">
                                 <div class="dropdown dropdown-top dropdown-end">
@@ -500,10 +512,17 @@
                         </div>
 
 
-                        <div style="background-color:#1a1c23;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
-                            <div class="flex-1 px-2">
+                        <div style="background-color:#1a1c23;color:white;" class=" text-accent-content rounded-box flex items-center p-4 shadow-xl">
+                            <div class="flex-1 px-2 hover:opacity-50 dark:hover:opacity-50 ease-in-out duration-300  ">
                                 <h2 class="text-2xl font-extrabold" id="quantidadeshared"></h2>
-                                <p class="text-sm text-opacity-60" id="meucodigo"></p>
+
+                                <div class="flex items-center">
+                                    <i class="fas fa-code-branch m-1"></i>
+
+
+
+                                    <p class="text-sm text-opacity-60" id="meucodigo"></p>
+                                </div>
                             </div>
                             <div class="flex-0">
                                 <div class="dropdown dropdown-top dropdown-end">

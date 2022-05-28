@@ -18,9 +18,10 @@ document.getElementById("files").addEventListener("change", function(e) {
     files = e.target.files;
     for (let i = 0; i < files.length; i++) {
         console.log(files[i]);
+
     }
 });
- 
+
 document.getElementById("send").addEventListener("click", function() {
     //checks if files are selected
     if (files.length != 0) {
@@ -59,7 +60,11 @@ document.getElementById("send").addEventListener("click", function() {
             );
         }
     } else {
-        alert("No file chosen");
+        Swal.fire(
+            'Selecione Uma Nova Imagem!',
+            '',
+            'error'
+        )
     }
 });
 
