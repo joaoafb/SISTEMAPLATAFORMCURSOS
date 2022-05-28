@@ -28,25 +28,16 @@ function list() {
             localStorage.setItem("idcurso", doc.id)
             const descricao = doc.data().descricaocurso
 
-            var html = '<div>';
-            html += '<div  class="-mx-4 flex flex-wrap ">';
-            html += '<div style="margin:10px;width:400px;height:auto;" class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">'
-            html += '<div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">'
-            html += ' <div class="mb-8 overflow-hidden rounded">'
 
-            html += '   <img src="' + doc.data().data + '" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">'
-
-            html += '  </div>'
-            html += '<div>'
-            html += ' <span  class="categoria text-white mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white"> ' + doc.data().categoria + '</span><h3>'
-            html += '    <h1  class=" text-white mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">' + doc.data().titulocurso + '</h1>'
-            html += ' </h3>'
-            html += ' <p class=" text-white text-base text-body-color">' + descricao.slice(0, 100) + '...</p>'
-            html += '  </div>'
-            html += '      <button onclick="infocurso()" style="margin-top:10px;background:#7e3af2;color:White;border:0;" type="button"class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Adquirir</button>'
+            var html = '<div class="card w-96 bg-base-100 shadow-xl">'
+            html += '<figure><img src="' + doc.data().data + '" alt="Shoes" /></figure>'
+            html += '  <div class="card-body">'
+            html += '<h2 class="card-title">' + doc.data().titulocurso + '</h2>'
+            html += '<p>' + descricao.slice(0, 100) + '</p>'
+            html += ' <div class="card-actions justify-end">'
+            html += '      <button onclick="infocurso()" style="margin-top:10px;background:#7e3af2;color:White;border:0;" type="button" class="btn btn-primary">Adquirir</button>'
             html += ' </div>'
-            html += '</div>'
-            html += '</div>'
+            html += ' </div>'
             html += '</div>'
 
             document.getElementById("listcurso").innerHTML += html;

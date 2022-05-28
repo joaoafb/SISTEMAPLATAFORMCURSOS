@@ -5,7 +5,7 @@ document.getElementById("imgperfil").src = localStorage.getItem("urlimg")
 
 document.getElementById("nomeperfil").innerHTML = localStorage.getItem("nome")
 
-document.getElementById("cargo").innerText = localStorage.getItem("cargo")
+document.getElementById("cargo").innerText = localStorage.getItem("email")
 document.getElementById("img").src = localStorage.getItem("urlimg")
 
 
@@ -20,7 +20,7 @@ document.getElementById("files").addEventListener("change", function(e) {
         console.log(files[i]);
     }
 });
-
+ 
 document.getElementById("send").addEventListener("click", function() {
     //checks if files are selected
     if (files.length != 0) {

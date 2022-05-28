@@ -34,7 +34,7 @@ function load() {
 
         var posts = '<div style="padding:10px;" class="">'
         posts += '  <div id="post" style="width: 80%;"  class=" m-auto ">'
-        posts += ' <div class=" grid grid-cols-3 grid-rows-7 grid-flow-row overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">'
+        posts += ' <div style="border-radius:10px;" class=" card lg:card-side bg-white shadow-xl">'
 
 
         posts += ' <div class="col-span-3 row-span-1">'
@@ -53,7 +53,7 @@ function load() {
         posts += '   <h1 class="text-lg">'
         posts += ' <a class="no-underline hover:underline text-black" href="#">' + snapshot.val().msg + '</a>'
         posts += '  </h1>'
-        posts += ' <p class="text-grey-darker text-sm">' + snapshot.val().data + '</p>'
+        posts += ' <p class="text-gray-darker text-sm">' + snapshot.val().data + '</p>'
         posts += ' </header>'
         posts += ' </div>'
 
