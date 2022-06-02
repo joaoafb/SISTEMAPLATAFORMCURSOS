@@ -26,3 +26,19 @@ function deslogar(){
 }
 
 
+function codigo(){
+  Swal.fire(
+    'Código De Referência',
+    'Caso Outra Pessoa Utilize Seu Código Na Momento De Cadastro, Você Recebera R$1 e ele R$2',
+    ''
+  )
+}
+
+
+function saldo(){
+  Swal.fire(
+    'Seu Saldo',
+    'Com Este Saldo Você Poderá Adquirir Novos Cursos Na Plataforma, Para Recarregar Só Abrir o Menu / Mais Opções / Adicionar Crédito',
+    ''
+  )
+}
