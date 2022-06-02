@@ -30,16 +30,22 @@ function exibiraulas() {
             document.querySelector("video").style.borderRadius = '10px'
 
             const titulo = document.createElement("li");
-            const texttitulo = document.createTextNode(' | Módulo ' + +doc.data().sequencia + " " + doc.data().titulo)
 
-
-            titulo.className = 'btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'
+            const title = document.createElement('span')
+            title.innerHTML = doc.data().titulo
+            const modulo = document.createElement("span")
+            modulo.innerHTML = 'Módulo' + doc.data().sequencia + '<br>'
+            title.className = 'btn btn-lg sm:btn-sm md:btn-md lg:btn-lg'
+            title.style.fontSize = '9pt'
+            modulo.className = 'flex-auto text-sm font-semibold text-gray-500'
             titulo.style.fontSize = '9pt'
             titulo.id = 'titulo'
             titulo.style.backgroundColor = '#121317'
             titulo.style.margin = '5px'
             titulo.style.padding = '10px'
-
+            titulo.appendChild(modulo)
+            titulo.appendChild(title)
+            
 
             titulo.onclick = function() {
 
@@ -50,7 +56,6 @@ function exibiraulas() {
                 document.querySelector("#video").src = doc.data().link;
 
             }
-            titulo.appendChild(texttitulo);
 
             document.getElementById("listamodulos").appendChild(titulo);
 
